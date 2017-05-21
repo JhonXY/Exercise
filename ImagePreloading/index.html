@@ -52,6 +52,7 @@
     </div>
 
     <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <script src="js/preload.js"></script>
     <script>
         var imgs = [
             'img/1.jpg',
@@ -63,23 +64,16 @@
 
         var index = 0;
         var len = imgs.length;
-        var count = 0;
         $progress = $('progress')
 
-        // 预加载
-        $.each(imgs,function(i, src) {
-            var imgObj = new Image();
-
-            $(imgObj).on('load', function(){
+        $.preload(imgs,{
+            each: function(count){
                 $progress.html(Math.round((count + 1)/ len * 100) + '%');
-
-                if(count >= len - 1){
-                    $('.loading').hide();
-                    document.title = '1/' + len;
-                }
-                count++;
-            })
-            imgObj.src = src;
+            },
+            all: function(){
+                $('.loading').hide();
+                document.title = '1/' + len;
+            }
         });
 
         // 上下页
