@@ -108,6 +108,7 @@ ul{list-style:none;
 }
 
 .tooltip-content i {
+    /*透明度级别*/
 	opacity: 0;
 }
 
@@ -116,22 +117,39 @@ ul{list-style:none;
 	opacity: 1;
 }
 
+.tooltip:hover .tooltip-content,
+.tooltip:hover .tooltip-content i {
+	pointer-events: auto;
+    /*鼠标滑过位置恢复到原地*/
+	-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
+	transform: translate3d(0,0,0) scale3d(1,1,1);
+}
+
+.tooltip-effect-1:hover .tooltip-content i {
+	-webkit-transform: rotate3d(1,1,1,0);
+	transform: rotate3d(1,1,1,0);
+}
 
 .tooltip-effect-1 .tooltip-content {
+    /*translate y轴隐藏时位置向下10px，rotate旋转45度位置*/
 	-webkit-transform: translate3d(0,10px,0) rotate3d(1,1,1,45deg);
 	transform: translate3d(0,10px,0) rotate3d(1,1,1,45deg);
+    /*旋转中心点的位置*/
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
+    /*平滑的过度属性值，这里配合过度了opacity的属性变化以及transform的变化效果*/
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
 }
 
 .tooltip-effect-1 .tooltip-content i {
+    /*scale 图标x，y轴缩小，使之有个从小到大的效果*/
 	-webkit-transform: scale3d(0,0,1);
 	transform: scale3d(0,0,1);
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
 	transition: opacity 0.3s, transform 0.3s;
 }
+
 .tooltip-effect-2 .tooltip-content {
 	-webkit-transform: translate3d(0,10px,0);
 	transform: translate3d(0,10px,0);
@@ -140,6 +158,7 @@ ul{list-style:none;
 }
 
 .tooltip-effect-2 .tooltip-content i {
+    /*图表下落更深*/
 	-webkit-transform: translate3d(0,15px,0);
 	transform: translate3d(0,15px,0);
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -179,6 +198,7 @@ ul{list-style:none;
 .tooltip-effect-5 .tooltip-content {
 	-webkit-transform: scale3d(0,0,1);
 	transform: scale3d(0,0,1);
+    /*为scale缩放定中心点*/
 	-webkit-transform-origin: 50% 100%;
 	transform-origin: 50% 100%;
 	-webkit-transition: opacity 0.3s, -webkit-transform 0.3s;
@@ -192,17 +212,6 @@ ul{list-style:none;
 	transition: opacity 0.3s, transform 0.3s;
 }
 
-.tooltip:hover .tooltip-content,
-.tooltip:hover .tooltip-content i {
-	pointer-events: auto;
-	-webkit-transform: translate3d(0,0,0) scale3d(1,1,1);
-	transform: translate3d(0,0,0) scale3d(1,1,1);
-}
-
-.tooltip-effect-1:hover .tooltip-content i {
-	-webkit-transform: rotate3d(1,1,1,0);
-	transform: rotate3d(1,1,1,0);
-}
 
 /* Arrow */
 .tooltip-content::after {
