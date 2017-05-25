@@ -1,69 +1,79 @@
+// 结束时做好代码优化，相同的样式整合起来
 $toolbar-size: 52px;
+
+.toolbar-item, .toolbar-btn, .toolbar-icon, .toolbar-text{
+    width: $toolbar-size;
+    height: $toolbar-size;
+}
+.toolbar-icon, .toolbar-text{
+    position: absolute;
+    left: 0;
+    color: #fff;
+    text-align: center;
+    // 改变top值引入时间是一秒
+    @include transition(top 1s);
+}
 
 .toolbar{
     position: fixed;
     left: 50%;
     bottom: 5px;
     margin-left: -$toolbar-size / 2;
-
 }
-.tool-item{
+.toolbar-item{
     position: relative;
     display: block;
-    width: $toolbar-size;
-    height: $toolbar-size;
     margin-top: 1px;
+
     &:hover{
         .toolbar-icon{
-            top: -$toolbar-size;
+            top: - $toolbar-size;
         }
         .toolbar-text{
             top: 0;
         }
+        .toolbar-layer{
+            @include opacity(1);
+            @include scale(1);
+        }
     }
 }
-.toolvar-btn{
+.toolbar-btn{
     position: absolute;
     left: 0;
     top: 0;
-    width: $toolbar-size;
-    height: $toolbar-size;
     overflow: hidden;
 }
 .toolbar-icon{
-    position: absolute;
-    left: 0;
     top: 0;
-    width: $toolbar-size;
-    height: $toolbar-size;
     background-color: #d0d6d9;
     font-size: 30px;
-    color: #fff;
-    text-align: center;
     line-height: $toolbar-size;
-    @include transition(top 1s);
 }
 .toolbar-text{
-    position: absolute;
-    left: 0;
     top: $toolbar-size;
-    width: $toolbar-size;
-    height: $toolbar-size;
     background-color: #98a1a6;
     font-size: 12px;
     padding-top: 12px;
-    color: #fff;
-    text-align: center;
     line-height: 1.2;
-    // 改变top值引入时间是一秒
-    @include transition(top 1s);
 }
 .toolbar-layer{
-
+    position: absolute;
+    right: $toolbar-size - 6;
+    bottom: -10px;
+    width: 172px;
+    background-image: url(../img/toolbar_img.png);
+    background-repeat: no-repeat;
+    @include opacity(0);
+    @include transform-origin(95% 95%);
+    @include scale(0.01);
+    @include transition(all 1s);
 }
 .toolbar-layer-weixin{
-
+    height: 212px;
+    background-position: 0 0;
 }
 .toolbar-layer-app{
-
+    height: 194px;
+    background-position: 0 -2;
 }

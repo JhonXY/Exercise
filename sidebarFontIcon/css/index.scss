@@ -1,6 +1,6 @@
 @import "mixin";
 @import "toolbar";
- 
+
 
 @font-face {
   font-family: 'icomoon';
@@ -30,13 +30,17 @@
 
 .icon-wechat:before {
   content: "\e900";
+  line-height: $toolbar-size;
 }
 .icon-bubble2:before {
   content: "\e96e";
+  line-height: $toolbar-size;
 }
 .icon-download3:before {
   content: "\e9c7";
+  line-height: $toolbar-size;
 }
 .icon-arrow-up2:before {
   content: "\ea3a";
+  line-height: $toolbar-size;
 }
