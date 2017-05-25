@@ -1,0 +1,103 @@
+.toolbar {
+  position: fixed;
+  left: 50%;
+  bottom: 5px;
+  margin-left: -26px;
+}
+
+.tool-item {
+  position: relative;
+  display: block;
+  width: 52px;
+  height: 52px;
+  margin-top: 1px;
+}
+.tool-item:hover .toolbar-icon {
+  top: -52px;
+}
+.tool-item:hover .toolbar-text {
+  top: 0;
+}
+
+.toolvar-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+  overflow: hidden;
+}
+
+.toolbar-icon {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52px;
+  height: 52px;
+  background-color: #d0d6d9;
+  font-size: 30px;
+  color: #fff;
+  text-align: center;
+  line-height: 52px;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -ms-transition: top 1s;
+  -o-trasition: top 1s;
+  transition: top 1s;
+}
+
+.toolbar-text {
+  position: absolute;
+  left: 0;
+  top: 52px;
+  width: 52px;
+  height: 52px;
+  background-color: #98a1a6;
+  font-size: 12px;
+  padding-top: 12px;
+  color: #fff;
+  text-align: center;
+  line-height: 1.2;
+  -webkit-transition: top 1s;
+  -moz-transition: top 1s;
+  -ms-transition: top 1s;
+  -o-trasition: top 1s;
+  transition: top 1s;
+}
+
+@font-face {
+  font-family: 'icomoon';
+  src: url("fonts/icomoon.eot?qarm6i");
+  src: url("fonts/icomoon.eot?qarm6i#iefix") format("embedded-opentype"), url("fonts/icomoon.ttf?qarm6i") format("truetype"), url("fonts/icomoon.woff?qarm6i") format("woff"), url("fonts/icomoon.svg?qarm6i#icomoon") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+  /* Better Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-wechat:before {
+  content: "\e900";
+}
+
+.icon-bubble2:before {
+  content: "\e96e";
+}
+
+.icon-download3:before {
+  content: "\e9c7";
+}
+
+.icon-arrow-up2:before {
+  content: "\ea3a";
+}
