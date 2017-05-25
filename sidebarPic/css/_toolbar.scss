@@ -21,7 +21,7 @@ $toolbar-size: 52px;
     left: 50%;
     bottom: 5px;
     // 为外边距margin左侧赋值，使工具条向左移动半个它自身的宽度
-    margin-left: $toolbar-size / 2;
+    margin-left: -$toolbar-size / 2;
 }
 .toolbar-item {
     display: block;
@@ -49,7 +49,7 @@ $toolbar-size: 52px;
 
     .toolbar-layer{
         height: 212px;
-        background-position: 0 0px;
+        background-position: 0 0;
     }
 }
 .toolbar-item-feedback{
@@ -66,18 +66,17 @@ $toolbar-size: 52px;
     //     background-position: 0 -612px;
     // }
     @include toolbar-item(-550px, -612px);
-
     .toolbar-layer{
         height: 194px;
         background-position: 0 -222px;
     }
 }
 .toolbar-item-top{
-    // background-position: 0 -634px;
+    // background-position: 0 -674px;
     // &:hover{
     //     background-position: 0 -736px;
     // }
-    @include toolbar-item(-634px, -736px);
+    @include toolbar-item(-674px, -736px);
 }
 .toolbar-layer{
     position: absolute;

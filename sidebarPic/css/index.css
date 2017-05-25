@@ -12,7 +12,7 @@
   position: fixed;
   left: 50%;
   bottom: 5px;
-  margin-left: 26px;
+  margin-left: -26px;
 }
 
 .toolbar-item {
@@ -44,7 +44,7 @@
 }
 .toolbar-item-weixin .toolbar-layer {
   height: 212px;
-  background-position: 0 0px;
+  background-position: 0 0;
 }
 
 .toolbar-item-feedback {
@@ -66,7 +66,7 @@
 }
 
 .toolbar-item-top {
-  background-position: 0 -634px;
+  background-position: 0 -674px;
 }
 .toolbar-item-top:hover {
   background-position: 0 -736px;
