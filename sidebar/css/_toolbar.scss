@@ -1,0 +1,97 @@
+// 函数式的写法
+@mixin toolbar-item($pos, $hover) {
+    background-position: 0 $pos;
+    &:hover{
+        background-position: 0 $hover;
+    }
+}
+
+$toolbar-size: 52px;
+
+.toolbar-item{
+    background-image: url(../img/toolbar.png);
+    background-repeat: no-repeat;
+}
+.toolbar-layer{
+    background-image: url(../img/toolbar.png);
+    background-repeat: no-repeat;
+}
+.toolbar{
+    position: fixed;
+    left: 50%;
+    bottom: 5px;
+    // 为外边距margin左侧赋值，使工具条向左移动半个它自身的宽度
+    margin-left: $toolbar-size / 2;
+}
+.toolbar-item {
+    display: block;
+    width: $toolbar-size;
+    height: $toolbar-size;
+    margin-top: 1px;
+    // transition: all 1s;
+    @include transition(background-position 1s);
+    &:hover{
+        .toolbar-layer{
+            // opacity: 1;
+            // filter: alpha(opcity = 100);
+            // transform: scale(1);
+            @include opacity(1);
+            @include scale(1);
+        }
+    }
+}
+.toolbar-item-weixin{
+    // background-position: 0 -798px;
+    // &:hover{
+    //     background-position: 0 -860px;
+    // }
+    @include toolbar-item(-798px, -860px);
+
+    .toolbar-layer{
+        height: 212px;
+        background-position: 0 0px;
+    }
+}
+.toolbar-item-feedback{
+    // background-position: 0 -426px;
+    // &:hover{
+    //     background-position: 0 -488px;
+    // }
+    @include toolbar-item(-426px, -488px);
+
+}
+.toolbar-item-app{
+    // background-position: 0 -550px;
+    // &:hover{
+    //     background-position: 0 -612px;
+    // }
+    @include toolbar-item(-550px, -612px);
+
+    .toolbar-layer{
+        height: 194px;
+        background-position: 0 -222px;
+    }
+}
+.toolbar-item-top{
+    // background-position: 0 -634px;
+    // &:hover{
+    //     background-position: 0 -736px;
+    // }
+    @include toolbar-item(-634px, -736px);
+}
+.toolbar-layer{
+    position: absolute;
+    right: $toolbar-size - 6;
+    bottom: -10px;
+    width: 172px;
+    //  兼容ie的透明度写法
+    // opacity: 0;
+    // filter: alpha(opacity = 0);
+    // transform-origin: 95% 95%;
+    // transform: scale(0.01);
+    // transition: all 1s;
+    @include opacity(0);
+    @include transform-origin(95% 95%);
+    @include scale(0.01);
+    @include transition(all 1s)
+}
