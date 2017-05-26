@@ -6,7 +6,15 @@ requirejs.config({
 
 // requirejs(['jquery'], function($){
 // 模块都是在一个数组里的，多个数组的话会被忽略
-requirejs(['jquery', 'scrollto'], function($, scrollto){
+requirejs(['jquery', 'backtop'], function($, backtop){
+    new backtop.BackTop($('#backTop'), {
+        mode: 'move',
+        pos: 100,
+        speed: 2000
+    })
+})
+
+/*
     // 实例化以使用该模块
     var scroll = new scrollto.ScrollTo({
         // 用户传参处
@@ -19,6 +27,7 @@ requirejs(['jquery', 'scrollto'], function($, scrollto){
     // $('#backTop').on('click', scroll.move);
     $('#backTop').on('click', $.proxy(scroll.move, scroll));
 })
+*/
 /*
     $(window).on('scroll', function(){
         checkPosition($(window).height());
