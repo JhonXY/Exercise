@@ -7,11 +7,21 @@ requirejs.config({
 // requirejs(['jquery'], function($){
 // 模块都是在一个数组里的，多个数组的话会被忽略
 requirejs(['jquery', 'backtop'], function($, backtop){
+
+/*    // 模块式调用
     new backtop.BackTop($('#backTop'), {
         mode: 'move',
         pos: 100,
         speed: 2000
     })
+*/
+    // 插件式调用
+    $('#backTop').backtop({
+        mode: 'go',
+        pos: 100,
+        speed: 2000
+    })
+
 })
 
 /*
