@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+<link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet">
+</head>
+<body>
+
+<ul id="navid" class="nav nav-tabs">
+  <li class="active">
+    <a href="##">Home</a>
+  </li>
+  <li>
+    <a href="##">CSS3</a>
+  </li>
+  <li>
+    <a href="##">Sass</a>
+  </li>
+  <li>
+    <a href="##">jQuery</a>
+  </li>
+  <li>
+    <a href="##">Responsive</a>
+  </li>
+</ul>
+
+<script>
+ // []这样的写法十分危险，会让不写;的 js 代码块出现问题，所以最好还是直接Array.prototype好
+  var hC = document.getElementById('navid').getElementsByTagName('li');
+  [].forEach.call(hC, function (item, index) {
+    item.onclick = function () {
+      [].forEach.call(hC, function (c, i) {
+        if (c.classList.contains('active')) c.classList.remove('active')
+      })
+      // 兼容式写法
+        // if(c.getAttribute('class')) {
+        //   if (c.getAttribute('class').indexOf('active') > -1) {
+        //     c.classList.remove('active')
+        //   }
+        // }
+      this.classList.add('active');
+    }
+  })
+        
+</script>
+</body>
+</html>

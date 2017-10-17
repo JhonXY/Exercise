@@ -86,7 +86,7 @@
       var imgsrc = 'img/'+id+'.large.jpg'
       var imageObj = new Image()
       imageObj.src = imgsrc
-      imageObj.onload = function() {
+      imageObj.onload = function() {  // 图片对象加载完后调用的方法
         var w = this.width
         var h = this.height
         var winWidth = zWin.width()
