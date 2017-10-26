@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<style>
+  #wrap {
+    margin: 0 auto;
+    width: 500px;
+    height: 300px;
+    margin-top: 100px;
+    background: #d4d4d4;
+    border: 1px solid rgb(148, 148, 148);
+    position: relative;
+    overflow: hidden;
+  }
+  #inner {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 150px;
+    height: 150px;
+    border-top: 75px;
+    border-bottom: 75px;
+    border-left: 175px;
+    border-right: 175px;
+    border-style: solid;
+    border-color: black; 
+    transform: translate(-50%, -50%);
+    background: #fff;
+    opacity: 0.3;
+    z-index: 1;
+  }
+  #wrap img {
+    /* margin: 0 auto; */
+    height: auto;
+    width: auto;
+    position: absolute;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+  }
+  div.bar {
+    width: 500px;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+  .button, .toobar {
+    width: 500px;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .bigger, .smaller, .select, .chop {
+    width: 30%;
+    height: 50px;
+    text-align: center;
+    background: rgb(0, 165, 187);
+    border-radius: 5px;
+    color: #fff;
+    line-height: 50px;
+  }
+</style>
+<body>
+  <div id="wrap">
+    <div id="inner"></div>
+    <img id="avatorImg" onload="imgChanged()" alt="">
+  </div>
+  <div class="bar">
+    <div class="button">
+      <div class="bigger">放大</div>
+      <div class="smaller">缩小</div>
+    </div>
+    <div class="toobar">
+      <div class="select">选择图片</div>
+      <div class="chop">裁剪图片</div>
+    </div>
+  </div>
+  <script src="./drag.js"></script>
+</body>
+</html>
