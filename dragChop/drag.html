@@ -63,21 +63,43 @@
     border-radius: 5px;
     color: #fff;
     line-height: 50px;
+    cursor: pointer;
+  }
+  .show {
+    margin: 0 auto;
+    margin-top: 20px;
+    width: 500px;
+  }
+  div.showInner {
+    width: 150px;
+    height: 150px;
+    border: 1px solid rgb(163, 163, 163);
+    background: #fff;
+    margin: 0 auto;
   }
 </style>
 <body>
   <div id="wrap">
-    <div id="inner"></div>
+    <div id="inner">
+      
+    </div>
     <img id="avatorImg" onload="imgChanged()" alt="">
   </div>
   <div class="bar">
     <div class="button">
-      <div class="bigger">放大</div>
-      <div class="smaller">缩小</div>
+      <div class="bigger">放  大</div>
+      <div class="smaller">缩  小</div>
     </div>
     <div class="toobar">
-      <div class="select">选择图片</div>
+      <label class="select" for="sub">选择图片</label>
+      <!-- for一定要对应Id， hidden可以直接让input不显示，内联监听方法，传入事件参数一定得使用event作为参数  -->
+      <input type="file" id="sub" hidden onchange="imgInput(event)">
       <div class="chop">裁剪图片</div>
+    </div>
+  </div>
+  <div class="show">
+    <div class="showInner">
+      <img id="showImg" src="" alt="">
     </div>
   </div>
   <script src="./drag.js"></script>
