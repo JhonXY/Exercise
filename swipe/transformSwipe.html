@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+	<style>
+		* {
+			margin: 0;
+			padding: 0;
+		}
+		
+		.container {
+			position: relative;
+			margin: 20px auto;
+			width: 1226px;
+			height: 460px;
+			overflow: hidden;
+		}
+
+		#wrap {
+			position: absolute;
+			width: 1000%;
+			height: 100%;
+			top: 0px;
+			left: 0%;
+			-webkit-transition: .3s ease;
+			-moz-transition: .3s ease;
+			transition: .3s ease;
+		}
+		
+		.no-animation {
+			transition: none!important;
+		}
+		
+		#wrap .banner {
+			float: left;
+			width: 10%;
+			height: 100%;
+		}
+	
+	  .tab {
+			position: absolute;
+			bottom: 20%;
+			right: 50%;
+			transform: translate(50%, 50%)
+		}
+	
+		.tab span {
+			display: inline-block;
+			width: 6px;
+			height: 6px;
+			margin: 3px;
+			background: rgba(105, 105, 105, 0.5);
+			border-radius: 50%;
+			cursor: pointer;
+			border: 2px solid #887B6E;
+		}
+	
+		.tab span.on {
+			background: #E2CEB7;
+		}
+	
+		.tab span:hover {
+			background: #E2CEB7;
+		}
+	
+		.prev {
+			position: absolute;
+			left: 20px;
+			top: 210px;
+			width: 41px;
+			height: 69px;
+			background: url("images/icon-slides.png") 82px;
+			cursor: pointer;
+		}
+	
+		.prev:hover {
+			background: url("./images/icon-slides.png");
+		}
+	
+		.next {
+			position: absolute;
+			right: 20px;
+			top: 210px;
+			width: 41px;
+			height: 69px;
+			background: url("./images/icon-slides.png") 41px;
+			cursor: pointer;
+		}
+	
+		.next:hover {
+			background: url("images/icon-slides.png") 123px;
+		}
+	</style>
+	</head>
+	
+<body>
+<div class="container">
+	<div id="wrap">
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/1.jpg" width="1226" height="460" alt="轮播图1">
+			</div>
+		</div>
+	
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/2.jpg" width="1226" height="460" alt="轮播图2">
+			</div>
+		</div>
+	
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/3.jpg" width="1226" height="460" alt="轮播图3">
+			</div>
+		</div>
+	
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/4.jpg" width="1226" height="460" alt="轮播图4">
+			</div>
+		</div>
+	
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/5.jpg" width="1226" height="460" alt="轮播图5">
+			</div>
+		</div>
+
+		<!-- 替身 -->
+		<div class="banner">
+			<div class="banner-img">
+				<img src="./images/1.jpg" width="1226" height="460" alt="轮播图1">
+			</div>
+		</div>
+	</div>
+	<div class="tab">
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+		<span></span>
+	</div>
+	<style>
+	.carou-bottom-shadow {
+		position: absolute;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		display: flex;
+		height: 62px;
+		justify-content: space-between;
+		align-items: baseline;
+	}
+	.carou-info {
+		margin-left: 30px;
+    line-height: 22px;
+    height: 22px;
+    font-size: 20px;
+    color: #fff;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+	}
+	.carou-mini {
+		display: flex;
+		justify-content: space-around;
+		margin-right: 30px;
+	}
+	a {
+		text-decoration: none;
+	}
+	a.tumb-cutsor {
+		position: absolute;
+		/* 8 95 182 269 356 +30 */
+		right: 386px;
+		bottom: 13px;
+		width: 79px;
+		height: 49px;
+    box-sizing: border-box;
+    border-radius: 4px;
+    border: 2px solid #ffe600;
+		transition: .5s;
+	}
+	a img {
+    border: 0;
+	}
+	img {
+		border: 0;
+		vertical-align: middle;
+	}
+	.chief-thumb-item {
+		height: 49px;
+		width: 79px;
+		margin-right: 8px;
+    border-radius: 4px;
+    border: 2px solid #fff;
+    overflow: hidden;
+		box-sizing: border-box;
+	}
+	.chief-thumb-item a,.chief-thumb-item img{
+		display: block;
+		width: 100%;
+		height: 100%;
+		line-height: 45px;
+		text-align: center;
+	}
+	</style>
+	<div class="carou-bottom-shadow">
+		<div class="carou-info">title</div>
+		<div class="carou-mini">
+			<a href="#" class="tumb-cutsor"></a>
+			<div class="chief-thumb-item">
+				<a href="#">
+					<img src="./images/1small.jpg" alt="">
+				</a>
+			</div>
+			<div class="chief-thumb-item">
+				<a href="#">
+					<img src="./images/2small.jpg" alt="">
+				</a>
+			</div><div class="chief-thumb-item">
+				<a href="#">
+					<img src="./images/3small.jpg" alt="">
+				</a>
+			</div><div class="chief-thumb-item">
+				<a href="#">
+					<img src="./images/4small.jpg" alt="">
+				</a>
+			</div>
+			<div class="chief-thumb-item">
+				<a href="#">
+					<img src="./images/5small.jpg" alt="">
+				</a>
+			</div>
+		</div>
+	</div>
+	<div class="prev"></div>
+	<div class="next"></div>
+</div>
+</body>
+<script>
+	var wrap = document.getElementById('wrap')
+	var items = document.getElementsByClassName('banner');
+	var dots = document.getElementsByTagName('span');
+	var minis = document.querySelectorAll('.chief-thumb-item')
+	var prevBtn = document.getElementsByClassName('prev')[0];
+	var nextBtn = document.getElementsByClassName('next')[0];
+	var on = document.getElementsByClassName('on')[0];
+	var tumbCutsor = document.querySelector('.tumb-cutsor')
+
+	var num = items.length;  // 实际的item数量
+	var currentIndex = 0;
+	var replacement = 1;  // 用于替代的item数量
+	var lock = false;  // 是否能够轮播
+	var transitionTime = .3;
+
+	dots[0].className = 'on';
+	
+	// 激活小圆点
+	function dotActive(index) {
+		[].forEach.call(dots, function (c, i) {
+			if (c.classList.contains('on')) c.classList.remove('on')
+		})
+		dots[index].className = 'on'
+	}
+
+	// 前进后退相关
+	function prev(e) {
+		console.log('====================================');
+		console.log(e.target);
+		console.log('====================================');
+		if (currentIndex === 0) {
+			wrap.classList.add('no-animation')
+			wrap.style.left = -(num - 1) + '00%';
+			setTimeout(function () {
+				goto(4);
+				wrap.classList.remove('no-animation');
+			}, 100);
+			dotActive(currentIndex)
+			move(currentIndex)
+		} else {
+			goto(currentIndex - 1)
+			dotActive(currentIndex)
+			move(currentIndex)
+		}
+	}
+	function next(e) {
+		if (currentIndex === 4) {
+			goto(5); // 继续向右移动，移动到第一张图的替身上
+			setTimeout(function () {
+				wrap.classList.add('no-animation')
+				wrap.style.left = 0 + '%'; // 在移动到第一张图的替身上完毕后，瞬间替换到第一张图上
+			}, transitionTime * 1000)
+			setTimeout(function () {
+				wrap.classList.remove('no-animation');
+			}, transitionTime * 1000 + 10);
+			currentIndex = 0; // 正确重置currentIndex
+			dotActive(currentIndex)
+			move(currentIndex)
+		} else {
+			goto(currentIndex + 1)
+			dotActive(currentIndex)
+			move(currentIndex)
+		}
+	}
+	prevBtn.addEventListener('click', prev, false)
+	nextBtn.addEventListener('click', next, false)
+
+	// 主要的goto函数
+	function goto(index) {
+		this.currentIndex = index
+		var itemLocation = -index * 100 + '%'
+		wrap.style.left = itemLocation
+		move(index)
+		changeTitle(index) 
+	}
+
+	// 小圆点相关
+	for (var i=0; i < dots.length; i++) {
+		var dots_click = function(index){
+			return function() {
+				dotActive(index)
+				if (0 === currentIndex && 4 === index) {
+					wrap.classList.add('no-animation')
+					wrap.style.left = -(num - 1) + '00%';
+					setTimeout(function () {
+						goto(index);
+						wrap.classList.remove('no-animation');
+					}, 100);
+				} else if (4 === currentIndex && 0 === index) { // 大图为最后一张图，去第一张上时
+					goto(5); // 继续向右移动，移动到第一张图的替身上
+					setTimeout(function() {
+						wrap.classList.add('no-animation')
+						wrap.style.left = 0 + '%'; // 在移动到第一张图的替身上完毕后，瞬间替换到第一张图上
+					}, transitionTime*1000)
+					setTimeout(function () {
+						wrap.classList.remove('no-animation');
+					}, transitionTime*1000 + 100);
+					currentIndex = 0; // 正确重置currentIndex
+				} else {
+					goto(index);
+				}
+			}
+		}(i)
+		dots[i].addEventListener('click', dots_click)
+	}
+	
+	// minis的相关操作
+	function move(index) {
+		switch(index) {
+			/* 8 95 182 269 356 +30 */
+			case 0: 
+				tumbCutsor.style.right = '386px' 
+				break;
+			case 1: 
+				tumbCutsor.style.right = '299px' 
+				break;
+			case 2: 
+				tumbCutsor.style.right = '212px' 
+				break;
+			case 3: 
+				tumbCutsor.style.right = '125px' 
+				break;
+			case 4: 
+				tumbCutsor.style.right = '38px' 
+				break;
+		}
+	}
+	for (var i=0; i < minis.length; i++) {
+		var minis_mouseover = function (index) {
+			return function () {
+				dotActive(index)
+				if (0 === currentIndex && 4 === index) {
+					wrap.classList.add('no-animation')
+					wrap.style.left = -(num - 1) + '00%';
+					setTimeout(function () {
+						goto(index);
+						wrap.classList.remove('no-animation');
+					}, 100);
+				} else if (4 === currentIndex && 0 === index) { // 大图为最后一张图，去第一张上时
+					goto(5); // 继续向右移动，移动到第一张图的替身上
+					setTimeout(function () {
+						wrap.classList.add('no-animation')
+						wrap.style.left = 0 + '%'; // 在移动到第一张图的替身上完毕后，瞬间替换到第一张图上
+					}, transitionTime * 1000)
+					setTimeout(function () {
+						wrap.classList.remove('no-animation');
+					}, transitionTime * 1000 + 100);
+					currentIndex = 0; // 正确重置currentIndex
+				} else {
+					goto(index);
+				}
+			}
+		}(i)
+		minis[i].addEventListener('mouseover', minis_mouseover)
+	}
+	
+	// 小标题
+	var title = document.querySelector('.carou-info')
+	function changeTitle(index) {
+		title.innerText = items[index].children[0].firstElementChild.alt
+	}
+</script>
+</html>
