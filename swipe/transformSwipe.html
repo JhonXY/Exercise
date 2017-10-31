@@ -11,7 +11,7 @@
 			padding: 0;
 		}
 		
-		.container {
+		#container {
 			position: relative;
 			margin: 20px auto;
 			width: 1226px;
@@ -97,7 +97,7 @@
 	</head>
 	
 <body>
-<div class="container">
+<div id="container">
 	<div id="wrap">
 		<div class="banner">
 			<div class="banner-img">
@@ -244,6 +244,7 @@
 </body>
 <script>
 	var wrap = document.getElementById('wrap')
+	var container = document.getElementById('container')
 	var items = document.getElementsByClassName('banner');
 	var dots = document.getElementsByTagName('span');
 	var minis = document.querySelectorAll('.chief-thumb-item')
@@ -257,6 +258,8 @@
 	var replacement = 1;  // 用于替代的item数量
 	var lock = false;  // 是否能够轮播
 	var transitionTime = .3;
+	var speed = 3000; // 轮播时间
+	var timer = 0;  // 计时器
 
 	dots[0].className = 'on';
 	
@@ -269,10 +272,7 @@
 	}
 
 	// 前进后退相关
-	function prev(e) {
-		console.log('====================================');
-		console.log(e.target);
-		console.log('====================================');
+	function prev() {
 		if (currentIndex === 0) {
 			wrap.classList.add('no-animation')
 			wrap.style.left = -(num - 1) + '00%';
@@ -281,14 +281,12 @@
 				wrap.classList.remove('no-animation');
 			}, 100);
 			dotActive(currentIndex)
-			move(currentIndex)
 		} else {
 			goto(currentIndex - 1)
 			dotActive(currentIndex)
-			move(currentIndex)
 		}
 	}
-	function next(e) {
+	function next() {
 		if (currentIndex === 4) {
 			goto(5); // 继续向右移动，移动到第一张图的替身上
 			setTimeout(function () {
@@ -297,14 +295,13 @@
 			}, transitionTime * 1000)
 			setTimeout(function () {
 				wrap.classList.remove('no-animation');
-			}, transitionTime * 1000 + 10);
+			}, transitionTime * 1000 + 100);
 			currentIndex = 0; // 正确重置currentIndex
 			dotActive(currentIndex)
 			move(currentIndex)
 		} else {
 			goto(currentIndex + 1)
 			dotActive(currentIndex)
-			move(currentIndex)
 		}
 	}
 	prevBtn.addEventListener('click', prev, false)
@@ -315,6 +312,7 @@
 		this.currentIndex = index
 		var itemLocation = -index * 100 + '%'
 		wrap.style.left = itemLocation
+		if (index === 5) move(0)
 		move(index)
 		changeTitle(index) 
 	}
@@ -404,5 +402,23 @@
 	function changeTitle(index) {
 		title.innerText = items[index].children[0].firstElementChild.alt
 	}
+
+	function auto() {
+		timer = setInterval(() => {
+			next()
+		}, speed)
+		console.log('====================================');
+		console.log(`auto: ${timer}`);
+		console.log('====================================');
+	}
+	function pause() {
+		clearInterval(timer)
+		console.log('====================================');
+		console.log(`pause: ${timer}`);
+		console.log('====================================');
+	}
+	auto()
+	container.addEventListener('mouseleave', auto, false)
+	container.addEventListener('mouseenter', pause, false)
 </script>
 </html>
