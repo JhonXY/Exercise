@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <script src="./preLoad.js"></script>
+  <style>
+  .imgContanier {
+    margin: 0 auto;
+    width: 400px;
+    height: 300px;
+    border: 1px solid black;
+    /* 图片居中方法 */
+    text-align: center;  
+  }
+  img {
+    height: 100%;
+  }
+  </style>
+</head>
+<body>
+  <div class="contanier">
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+    <div class="imgContanier">
+      <img src="./img/load.gif" alt="" data-src="./img/1.jpg">
+    </div>
+  </div>
+</body>
+<script>
+  var add = function(e, num, _this){
+    console.log('====================================');
+    console.log(num);
+    console.log(e);
+    console.log(_this);
+    console.log('====================================');
+  };
+  var opts = {
+    source: [
+      "./img/1.jpg", 
+      "./img/2.jpg", 
+      "./img/3.jpg",
+    ],
+    callback: add
+  };
+  // 生成实例,该实例的.imgs就是预加载后的img节点了
+  // opts中的source是required，其他的可以不传
+  var preLoad = new preLoad(opts);
+  var contanier = document.getElementsByClassName('imgContanier');
+  Array.from(contanier).splice(0, preLoad.imgs.length).forEach((item, index) => {
+    // 一个迷之删除所有子节点的方法，总感觉性能很差
+    while (item.hasChildNodes()) 
+    {
+      item.removeChild(item.firstChild);
+    }  
+    item.insertAdjacentElement('afterbegin', preLoad.imgs[index]);
+  })
+</script>
+</html>
