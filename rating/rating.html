@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
+  ul{
+    overflow: hidden;
+    width: 700px;
+  }
+  li.item {
+    margin: 0 25px 10px 0;
+    float: left;
+    display: block;
+    text-align: center;
+    width: 115px;
+  }
+  div.img {
+    height: 161px;
+    overflow: hidden;
+    border: 1px solid black;
+  }
+  p {
+    height: 18px;
+    font-size: 13px;
+    color: #37a;
+    margin: 5px 0 0;
+  }
+  strong {
+    color: #e09015;
+  }
+  .rating-star {
+    display: inline-block;
+    margin: 3px 3px 0 0;
+    width: 55px;
+    height: 11px;
+    background: url(./stars.png)
+  }
+  .rating-computed {
+    background-position: 0 33px;
+  }
+  .subject-rate {
+    color: #e09015;
+    font-size: 12px;
+    margin-left: 2px;
+  }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <ul>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star rating-computed"></span><span class="subject-rate">2.9</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">5.1</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">6.9</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">8.9</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">5.7</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">3.2</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">7.9</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">9.1</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">0</span>
+        </div>
+      </li>
+      <li class="item">
+        <div class="img">
+        </div>
+        <div class="bar">
+          <p>标题</p>
+          <span class="rating-star"></span><span class="subject-rate">1.0</span>
+        </div>
+      </li>
+    </ul>
+  </div>
+</body>
+<script src="./rating.js"></script>
+</html>
