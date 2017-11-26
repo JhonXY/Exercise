@@ -64,12 +64,22 @@
       "./img/1.jpg", 
       "./img/2.jpg", 
       "./img/3.jpg",
+      "./img/1.jpg",
+      "./img/2.jpg",
+      "./img/3.jpg",
+      "./img/1.jpg",
+      "./img/2.jpg",
+      "./img/3.jpg",
     ],
     callback: add
   };
   // 生成实例,该实例的.imgs就是预加载后的img节点了
   // opts中的source是required，其他的可以不传
-  var preLoad = new preLoad(opts);
+  var preLoad = new PreLoad(opts);
+  preLoad.imgLoader();
+  console.log('====================================');
+  console.log(preLoad);
+  console.log('====================================');
   var contanier = document.getElementsByClassName('imgContanier');
   Array.from(contanier).splice(0, preLoad.imgs.length).forEach((item, index) => {
     // 一个迷之删除所有子节点的方法，总感觉性能很差

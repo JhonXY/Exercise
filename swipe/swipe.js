@@ -9,8 +9,12 @@ var num = 0;
 
 [].forEach.call(dots, (item, index) => {
   item.onclick = function () {
+    [].forEach.call(dots, function (c, i) {
+      if (c.classList.contains('on')) c.classList.remove('on')
+      items[i].style.opacity = '0'
+    })
     item.className = 'on'
-    items[index].style.opacity = '1'
+    items[index].style.opacity = '1';
   }
   item.className = ''
   items[index].style.opacity = '0'

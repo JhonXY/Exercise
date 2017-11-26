@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>关于cookie的一些方法</title>
+</head>
+<body>
+  <button>cookies</button>
+  <p>如果包含服务端session信息的Cookie不想被客户端Javascript使用，那么就需要使用HttpOnly 标记。</p>
+</body>
+<script>
+  var test = document.getElementsByTagName('button');
+  test[0].addEventListener('click', function(e){
+    setCookie('name', 'what', 10)
+  })
+  function setCookie(key, value, expires, path, domain, secure){
+    // encodeURIComponent函数可以把字符串作为URI组件进行编码
+    var cookieText = encodeURIComponent(key) + '=' + encodeURIComponent(value);
+    // 一般主要设置cookie名字和值、cookie有效期、路径、域名、是否安全传输。
+    if (typeof expires == 'number') {
+      var date = new Date();
+      date.setTime(date.getTime() + (expires * 24 * 60 * 60 * 1000));
+      cookieText += ';expires=' + date.toGMTString();
+    }
+    if (path) {
+      cookieText += ';path=' + path;
+    }
+    if (domain) {
+      cookieText += ';domain=' + domain;
+    }
+    if (secure) {
+      cookieText += ';secure';
+    }
+    document.cookie = cookieText;
+  }
+  function getCookie(key){
+    var cookieName = encodeURIComponent(key) + '=';
+    var cookieStart = document.cookie.indexOf(cookieName);
+    var cookieValue = null;
+    if (cookieStart > -1){
+      var cookieEnd = document.cookie.indexOf(';', cookieStart);
+      if(cookieEnd == -1){
+        cookieEnd = document.cookie.length;
+      }
+      cookieValue = decodeURIComponent(document.cookie.substring(cookieStart + cookieName.length, cookieEnd))
+      return cookieValue;
+    }
+  }
+  function removeCookie(key){
+    this.setCookie(key, '', -1)
+  }
+</script>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+  *{
+    padding:0;
+    margin:0;
+  }
+
+  li{
+    /* 父元素不flex，子元素设置inline-block依旧会出效果，只是会有些奇怪的margin */
+    /* display: inline-block; */
+    list-style:none;
+    text-align: center;
+    line-height: 20px;
+    height:20px;
+    width:20px;
+    border-radius:50%;
+    margin:10px;
+    border:1px currentColor solid;
+  }
+  li:hover,li:hover~li{ 
+    /* 选中该li元素和其之后所有的同级li */
+    background:gray;
+  }
+  ul{
+    /* flex会让子元素呈现inline-block的类似效果，display显示list-item */
+    display:flex; 
+    /* 默认，ltr，rtl表示从左往右，变为从右往左 */
+    direction:rtl; 
+    width:fit-content;
+  }
+  </style>
+</head>
+<body>
+  <ul>
+    123
+    <li>1</li>
+    <li>2</li>
+    <li>3</li>
+    <li>4</li>
+    <li>5</li>
+  </ul>
+</body>
+</html>

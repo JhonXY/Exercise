@@ -4,15 +4,15 @@
   } else if (typeof module === 'object' && typeof module.exports === 'object' && module.exports) {
     module.exports = factory();  // cmd
   } else {
-    global.preLoad = factory();  // 直接挂载
+    global.PreLoad = factory();  // 直接挂载
   }
 })(typeof window !== 'undefined' ? window : this, 
 function () {
-  function preLoad(opts) {
+  function PreLoad(opts) {
     this.init(opts)
   }
-  preLoad.prototype = {
-    constructor: preLoad,
+  PreLoad.prototype = {
+    constructor: PreLoad,
     init: function (opts) {
       this.source = opts.source || [];
       this.callback = opts.callback || null;
@@ -21,7 +21,6 @@ function () {
       this.errNum = 0;
       this.sucNum = 0;
       this.errNum = [];
-      this.imgLoader();
     },
     imgLoader: function(){
       var img = [],
@@ -32,20 +31,37 @@ function () {
       for(var i=0; i<this.length; i++){
         img[i] = new Image();
         img[i].src = source[i]
+        // 这样可以很好得拿到i
         var callback = (function(i, _this){
+          console.log('====================================');
+          console.log(i);
+          console.log('====================================');
           return function(e){
             _this.sucNum++;
             _this.asyncNum++;
             if (_this.sucNum === _this.length) {
               if (typeof _this.callback === 'function') {
-                _this.callback(e, i, _this);
+                _this.callback(e, _this.sucNum, _this);
               } else {
                 console.log('Preloader Complete');
               }
             }
-            _this.debug && _this.msglog();
+            _this.debug && _this.msglog();i
           }
-        })(i, _this)
+        })(i, this)
+        // 这样就没法拿到i了
+        // var callback = function (e) {
+        //   this.sucNum++;
+        //   this.asyncNum++;
+        //   if (this.sucNum === this.length) {
+        //     if (typeof this.callback === 'function') {
+        //       this.callback(e, i, _this);
+        //     } else {
+        //       console.log('Preloader Complete');
+        //     }
+        //   }
+        //   this.debug && this.msglog();
+        // }
         img[i].onload = callback
         img[i].onerror = function(){
           _this.errNum++;
@@ -73,5 +89,5 @@ function () {
       }
     }
   }
-  return preLoad
+  return PreLoad
 })
